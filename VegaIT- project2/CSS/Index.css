@@ -950,26 +950,27 @@ a {
 .opinions__container .opinions__nonscrollable-container .opinions__comments-container {
   background-color: #FFFFFF;
   display: flex;
+  width: auto;
+  height: 100%;
   flex-direction: column;
   box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.35);
   -webkit-box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.35);
 }
 .opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__slider {
+  position: relative;
   display: flex;
+  height: 100%;
   flex-direction: row;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -ms-scroll-snap-type: x mandatory;
-}
-.opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__slider::-webkit-scrollbar {
-  display: none;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 .opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__slider .opinions__slide {
-  scroll-snap-align: start;
-  flex: 0 0 100%;
+  position: relative;
+  display: none;
   padding: 0 3.1rem 0 3rem;
+}
+.opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__slider .active-slide {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 .opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__secondary-container {
   margin-top: 3rem;
@@ -1148,6 +1149,7 @@ a {
   aspect-ratio: 1;
   background-color: #FFFFFF;
   border: none;
+  opacity: 1;
   cursor: pointer;
 }
 @media screen and (max-width: 480px) {
@@ -1165,11 +1167,14 @@ a {
     font-size: 4rem;
   }
 }
-.opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__sliderBtn-wrap .opinions__btn-wrap .opinions__btn--next {
-  opacity: 1;
-}
-.opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__sliderBtn-wrap .opinions__btn-wrap .opinions__btn--previous {
+.opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__sliderBtn-wrap .opinions__btn-wrap .disabled {
   opacity: 0.5;
+  pointer-events: none;
+}
+.opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__sliderBtn-wrap .opinions__btn-wrap .opinions__dots {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 .opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__sliderBtn-wrap .opinions__btn-wrap .opinions__radio {
   color: #E73137;
@@ -1179,24 +1184,12 @@ a {
   opacity: 0.5;
   border-radius: 50%;
   border: none;
+  transition: all 300ms ease-out;
 }
-.opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__sliderBtn-wrap .opinions__btn-wrap #radio1 {
+.opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__sliderBtn-wrap .opinions__btn-wrap .active-dot {
   opacity: 1;
   width: 1.9rem;
   height: 1.9rem;
-  transition: 300ms ease-out;
-}
-.opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__sliderBtn-wrap .opinions__btn-wrap #radio2 {
-  opacity: 0.5;
-  width: 1.3rem;
-  height: 1.3rem;
-  transition: 300ms ease-out;
-}
-.opinions__container .opinions__nonscrollable-container .opinions__comments-container .opinions__sliderBtn-wrap .opinions__btn-wrap #radio3 {
-  opacity: 0.5;
-  width: 1.3rem;
-  height: 1.3rem;
-  transition: 300ms ease-out;
 }
 
 .capabilities {

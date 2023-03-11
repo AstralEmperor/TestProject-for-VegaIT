@@ -5,11 +5,14 @@ for(i = 0; i < collapse.length; i++){
         var capabilities__content = this.nextElementSibling;
         var icon = this.querySelector('.icon');
         
-        if(capabilities__content.style.display === "flex"){
+        if(icon.innerHTML === 'remove'){
             capabilities__content.style.display = "none";
             icon.innerHTML = 'add';
             this.setAttribute('aria-expanded', 'false');
-        }else {
+        }else if(icon.innerHTML === 'add' && capabilities__content.childNodes.length === 0){
+            icon.innerHTML = 'remove';
+            this.setAttribute('aria-expanded', 'true');
+        }else{
             capabilities__content.style.display = "flex";
             icon.innerHTML = 'remove';
             this.setAttribute('aria-expanded', 'true');
